@@ -7,7 +7,7 @@ import Grid from "@mui/material/Grid";
 function App() {
   return (
     <div className="App">
-      <Grid spacing="12">
+      <Grid>
         <ExperienceCarousel></ExperienceCarousel>
         <PreviousProjectsCarousel></PreviousProjectsCarousel>
         <TechStackCard></TechStackCard>

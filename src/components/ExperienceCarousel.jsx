@@ -6,6 +6,7 @@ import List from "@mui/material/List"
 import ListItemButton from "@mui/material/ListItemButton"
 import ListItemText from "@mui/material/ListItemText"
 import ListItemIcon from "@mui/material/ListItemIcon"
+import Collapse from "@mui/material/Collapse"
 import Typography from "@mui/material/Typography";
 import SendIcon from '@mui/icons-material/Send';
 
@@ -17,12 +18,12 @@ function ExperienceCarousel(props){
         {
             employer: "University of Arizona FNSV",
             title: "Applications Developer",
-            accomplishments: ["Probably the most random thing you have ever seen!"]
+            accomplishments: [{byline: "Leadership", expanded: "Led a small team of developers"}]
         },
         {
             employer: "University of Arizona RII",
             title: "Applications Developer",
-            accomplishments: ["Did all kinds of stuff", "Also some other stuff"]
+            accomplishments: [{byline: "Leadership", expanded: "Led a small team of developers"}]
         }
     ]
 
@@ -46,8 +47,8 @@ function CarouselItem(props)
           <List>
 
           </List>
-            {props.item.accomplishments.map(function(item){
-              return (<AccomplishmentItem item={item}></AccomplishmentItem>)
+            {props.item.accomplishments.map(function(item, i){
+              return (<AccomplishmentItem item={item} key={i}></AccomplishmentItem>)
             })}
         </CardContent>
       </Card>
@@ -56,14 +57,24 @@ function CarouselItem(props)
 
 
 function AccomplishmentItem(props){
+  const [expanded, setExpanded] = React.useState(false)
+
+  let changeExpanded = () => setExpanded(!expanded)
+
   return (
-      <ListItemButton>
+      <ListItemButton onClick={changeExpanded}>
         <ListItemIcon>
           <SendIcon />
         </ListItemIcon>
-        <ListItemText>{props.item}</ListItemText>
+        <ListItemText>{props.item.byline}</ListItemText>
+        <Collapse in={expanded}>
+          <ListItemText>
+            <Typography paragraph>
+              {props.item.expanded}
+            </Typography>
+            </ListItemText>
+        </Collapse>
       </ListItemButton>
-
   )
 }
 
