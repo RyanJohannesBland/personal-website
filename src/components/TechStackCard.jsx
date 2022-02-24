@@ -1,41 +1,61 @@
 import React from 'react';
-import Carousel from 'react-material-ui-carousel'
+import Grid from "@mui/material/Grid"
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 
-function ExperienceCarousel(props)
+function TechStackCard(props)
 {
-    var items = [
-        {
-            name: "Random Name #1",
-            description: "Probably the most random thing you have ever seen!"
-        },
-        {
-            name: "Random Name #2",
-            description: "Hello World!"
-        }
-    ]
-
     return (
-        <Carousel>
-            {
-                items.map( (item, i) => <Item key={i} item={item} /> )
-            }
-        </Carousel>
+      <Card variant="outlined">
+      <CardContent>
+        <Grid container spacing={2}>
+          <Grid item xs={4}>
+            <Card>
+              <CardContent>
+                <Typography variant="body1">Django</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={4}>
+            <Card>
+              <CardContent>
+                <Typography variant="body1">VueJs</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={4}>
+            <Card>
+              <CardContent>
+                <Typography variant="body1">Postgres</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={4}>
+            <Card>
+              <CardContent>
+                <Typography variant="body1">AWS</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={4}>
+            <Card>
+              <CardContent>
+                <Typography variant="body1">Docker</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={4}>
+            <Card>
+              <CardContent>
+                <Typography variant="body1">Github</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+      </CardContent>
+    </Card>
     )
 }
 
-function Item(props)
-{
-    return (
-        <Card variant="outlined">
-        <CardContent>
-          <Typography variant="h5">{props.item.name}</Typography>
-          <Typography variant="body1">University of Arizona</Typography>
-        </CardContent>
-      </Card>
-    )
-}
-
-export default ExperienceCarousel;
+export default TechStackCard;
