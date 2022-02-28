@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import Grid from "@mui/material/Grid"
-import Item from "./InformationCard"
+import InformationCard from "./InformationCard"
 
 function MegaGrid(props){
   // Constant that defines how much empty space will be present on page.
@@ -24,7 +24,7 @@ function MegaGrid(props){
     <Grid container spacing={2}>
       {/* Have one of these for each type of information */}
       {
-        array.map( (item, i) => <Item key={i} item={item}/> )
+        array.map( (item, i) => <InformationCard key={i} item={item}/> )
       }
     </Grid>
   )
